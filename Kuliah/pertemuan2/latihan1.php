@@ -29,6 +29,6 @@ echo "<br>";
 // ===, !==
 // untuk membandingkan nilai yang berbed jenis
 
-
-
+echo 'menyelesaikan tugas pertemuan 2';
+// selesai mengerjakan tugas pertemuan 2
 ?>
