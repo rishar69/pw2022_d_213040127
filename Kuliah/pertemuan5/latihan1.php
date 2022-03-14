@@ -49,3 +49,36 @@
 // $bulan[] = "mei";
 // print_r($bulan)
 ?>
+
+<?php 
+// array
+// variabel yang dapat memiliki nilai
+
+// membuat array
+// cara lama
+$hari = array("senin", "selasa", "rabu" );
+
+// cara baru
+$bulan = ["januari", "februari", "maret"];
+$asdo = ["string", 123, false];
+
+// menampilkan array
+// menggunakan var_dump() / print_r() untuk debbuging only
+
+var_dump($hari);
+echo "<br>";
+// print_r($bulan);
+// echo "<br>";
+// menampilkan 1 element array
+
+// echo $hari [0];
+// echo "<br>";
+// echo $bulan [2];
+
+// menambahkan element baru pada array
+
+$hari[] = "kamis";
+$hari[] = "Jum'at";
+var_dump($hari);
+
+?>
