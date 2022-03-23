@@ -9,8 +9,7 @@ $mahasiswa = [
     "npm" => "213040127",
     "email" => "harisharyarevano@gmail.com",
     "prodi" => "Teknik Informatika",
-    "gambar" => "shirt6.jfif"
-],
+    "gambar" => "shirt6.jfif" ],
 
     [ "nama" => "Yudha Prasetya",
     "npm" => "213040128",
