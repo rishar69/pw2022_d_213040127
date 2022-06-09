@@ -1,0 +1,46 @@
+.warna-navbar {
+  background-color: pink;
+  border-radius: 0px 0px 20px 20px;
+}
+.warna-font-navbar {
+  color: white;
+}
+.carousel-s {
+  z-index: -2;
+}
+.gap {
+  height: 150px;
+}
+.button-s {
+  background-color: blue;
+}
+.row-container {
+  background-color: rgb(255, 215, 219);
+  margin: 0px;
+}
+.img-carousel {
+  border-radius: 15px;
+}
+.hover-card:hover {
+  position: relative;
+  animation-name: atas;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes atas {
+  from {
+    bottom: 0px;
+  }
+  to {
+    bottom: 15px;
+  }
+}
+.warna-tombols {
+  background-color: pink;
+}
+
+.rrow {
+  background: white;
+  border-radius: 30px;
+  box-shadow: 7px;
+}
