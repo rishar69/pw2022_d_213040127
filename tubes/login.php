@@ -1,6 +1,16 @@
 <?php 
 require 'function.php';
+session_start();
 
+if(isset($_SESSION["login"])){
+    header("location: index.php");
+    exit;
+  }
+    if(isset($_COOKIE['login'])){
+        if($_COOKIE['login'] = true){
+            $_SESSION['login'] = true;
+        }
+    }
 
 if( isset($_POST["login"])){
   $db = koneksi();
@@ -11,6 +21,14 @@ if( isset($_POST["login"])){
 
     if(mysqli_num_rows($result) === 1){
         $row = mysqli_fetch_assoc($result);
+
+        $_SESSION["login"] = true;
+
+        if(isset($_POST['remember'])){
+
+            setcookie('login', 'true', time()+50000);
+
+        }
 
        if( password_verify($password, $row['password'])){
            header("location: index.php");
@@ -54,11 +72,18 @@ if( isset($_POST["login"])){
                             <label for="exampleInputPassword1" class="form-label">Password</label>
                             <input type="password" name="password" class="form-control" id="exampleInputPassword1">
                         </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" name="remember" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                        </div>
                         <?php if(isset($error) ) :?>
                             <div class="form-text text-danger fst-italic">Wrong Password or username</div>
                         <?php endif; ?>
                         <button type="submit" style="background-color: pink ;" name="login" class="btn">Login</button>
                         </form>
+                        <div id="emailHelp" class="form-text mt-5 mb-2">Don't have account yet? register here</div>
+                        <a class="btn btn-sm btn-outline-dark" href="register.php"> Register</a>
+
                 </div>
             </div>
         </div>

@@ -1,4 +1,9 @@
 <?php 
+session_start();
+if(!isset($_SESSION["login"])){
+  header("location: login.php");
+  exit;
+}
 require 'function.php';
 
 $kategori = query("SELECT * FROM kategori");
@@ -50,6 +55,9 @@ if( isset($_POST["search"])){
               </ul>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="logout.php">Logout</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href=""><button class="btn btn-outline-light button-s" type="submit">Cart</button></a>
             </li>
           </ul>
@@ -68,6 +76,53 @@ if( isset($_POST["search"])){
         </div>
       </div>
 
+      <!--carousel -->
+        <div class="container">
+            <div class="row">
+              <div class="col">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <?php foreach($kategori as $ktgr) : ?>
+    <div class="carousel-item active">
+      <img class="img-fluid" src="img/bgkate/<?= $ktgr['gambar']; ?>" class="d-block w-100" alt="">
+    </div>
+    <?php endforeach; ?>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>
+</div>
+  <div class="row">
+  <div class="container mt-5 ">
+      <div class="pt-2 pb-2 mb-3 "  style="background-color:rgb(240, 173, 181);">
+        <h3 class="text-center" style="color:white ;"> Sweets Category</h3>
+      </div>
+      <div class="row text-center row-container justify-content-start">
+        <?php foreach($kategori as $category) : ?>
+        <div class=" mt-2 ps-2 pe-2 col-lg-3 col-md-3 col-sm-2 col-6">
+          <div class="category-menu">
+            <a href=""><img class="img-fluid" src="img/icon/<?=$category["icon"]; ?>" alt="" class="mt-2" /></a>
+            <p><?= $category["nama_kategori"]; ?></p>
+          </div>          
+        </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </div>
+        </div>
+      <!-- end of carousel -->
 
     <!-- footer -->
     <footer style="background-color:pink ; height: 100px ;">

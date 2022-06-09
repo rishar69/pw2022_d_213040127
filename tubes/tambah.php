@@ -1,5 +1,11 @@
 <?php 
+session_start();
+if(!isset($_SESSION["login"])){
+  header("location: login.php");
+  exit;
+}
 require "function.php";
+
 
 if( isset($_POST["submit"])){
     if (tambah($_POST) > 0 ){
@@ -53,6 +59,9 @@ $kategori = query("SELECT * FROM kategori");
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="shop.php">Exclusive Candy</a></li>
               </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="logout.php">Logout</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href=""><button class="btn btn-outline-light button-s" type="submit">Cart</button></a>
